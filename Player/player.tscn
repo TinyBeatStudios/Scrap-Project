@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://0lky6o3e6knu"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hvfyp"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_l8h54"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_l8h54"]
+
+[node name="Player" type="CharacterBody3D" unique_id=1778722729]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2082706320]
+shape = SubResource("CapsuleShape3D_hvfyp")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1853226901]
+mesh = SubResource("CapsuleMesh_l8h54")
+
+[node name="HurtBoxArea" type="Area3D" parent="." unique_id=1793410130]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HurtBoxArea" unique_id=434827770]
+transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_l8h54")
+
+[node name="SpringArmCamera" type="Node" parent="." unique_id=2102799244]
+
+[node name="SpringArm3D" type="SpringArm3D" parent="SpringArmCamera" unique_id=705589631]
+
+[node name="Camera3D" type="Camera3D" parent="SpringArmCamera/SpringArm3D" unique_id=565962079]
+
+[node name="PlayerContext" type="Node" parent="." unique_id=432193071]
+
+[node name="MovementMachine" type="Node" parent="PlayerContext" unique_id=1464058583]
+
+[node name="CombatMachine" type="Node" parent="PlayerContext" unique_id=630638371]
+
+[node name="WeaponMachine" type="Node" parent="PlayerContext" unique_id=2134435603]
+
+[node name="Timers" type="Node" parent="." unique_id=251207617]
+
+[node name="CoyoteTimer" type="Timer" parent="Timers" unique_id=1347071278]
+wait_time = 0.12
+one_shot = true
+
+[node name="WitchTimer" type="Timer" parent="Timers" unique_id=1925862677]
+wait_time = 0.5
+one_shot = true
+
+[node name="AirDashCooldown" type="Timer" parent="Timers" unique_id=1873330472]
+wait_time = 0.3
+one_shot = true
+
+[node name="DodgeCooldown" type="Timer" parent="Timers" unique_id=769460262]
+wait_time = 0.2
+one_shot = true
+
+[node name="DodgeIFrame" type="Timer" parent="Timers" unique_id=692623406]
+wait_time = 0.08
+one_shot = true
